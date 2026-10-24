@@ -1,0 +1,53 @@
+export const teamMembers = [
+  {
+    id: 'sohail-khan',
+    name: 'Sohail Khan',
+    role: 'Lead Web Architect & Full-Stack Engineer',
+    department: 'Web Development',
+    image: '/team_sohail.jpeg',
+    tag: 'Web Lead',
+    quote: "Building reliable, scalable web systems engineered for performance and real-world scale.",
+    bio: 'Lead web developer specializing in Laravel (PHP), MySQL, and the MERN stack (React, Node, Express, MongoDB). Creator of live production systems including Hospital Management (HMS), School Portal, and Restaurant Management (RMS).',
+    skills: ['Laravel & PHP', 'React.js', 'Node.js & Express', 'MySQL & MongoDB', 'REST APIs', 'Cloud Deployments'],
+    experience: '2+ Years',
+    completedProjects: '6+ Production Deployments',
+    whatsappCustomMsg: 'Hi Sohail! I want to discuss a Web Development project with Doorstep Solutions.',
+    email: 'Skpattan850911@gmail.com',
+    github: 'https://github.com/SohailKhan-313',
+    linkedin: 'https://www.linkedin.com/in/sohail-khan-88b201375'
+  },
+  {
+    id: 'waqas-khan',
+    name: 'Waqas Khan',
+    role: 'Head of Mobile App Engineering',
+    department: 'App Development',
+    image: '/team_Waqas.png',
+    tag: 'App Lead',
+    quote: "Creating mobile experiences with native fluidity and intuitive navigation.",
+    bio: 'Mobile application engineer across iOS and Android. Specializes in Flutter and React Native architectures with 60fps micro-animations, Firebase, and offline-first storage.',
+    skills: ['Flutter & Dart', 'React Native', 'Firebase & Cloud', 'Biometrics & Security', 'Offline Sync', 'App Store Publishing'],
+    experience: '4+ Years',
+    completedProjects: '45+ Apps Launched',
+    whatsappCustomMsg: 'Hi Waqas! I want to discuss a Mobile App Development project with Doorstep Solutions.',
+    email: 'Skpattan850911@gmail.com',
+    github: 'https://github.com',
+    linkedin: 'https://linkedin.com'
+  },
+  {
+    id: 'hassan-munir',
+    name: 'Hassan Munir',
+    role: 'Head of Social Media & Growth',
+    department: 'Social Media Marketing',
+    image: '/team_hassan.jpeg',
+    tag: 'Social Media Head',
+    quote: "Scaling brands through viral short-form storytelling and performance marketing.",
+    bio: 'Growth strategist managing viral short-form video production (Reels & TikTok), precision Meta ad campaigns, and brand aesthetics that drive verifiable conversion ROI.',
+    skills: ['Social Growth Strategy', 'Viral Reels & TikTok', 'Meta & Google Ads', 'Content Calendars', 'Audience Analytics', 'Brand Revamp'],
+    experience: '4+ Years',
+    completedProjects: '10M+ Organic Reach',
+    whatsappCustomMsg: 'Hi Hassan! I want to scale my brand through Social Media Marketing with Doorstep Solutions.',
+    email: 'Skpattan850911@gmail.com',
+    github: 'https://instagram.com',
+    linkedin: 'https://linkedin.com'
+  }
+];
