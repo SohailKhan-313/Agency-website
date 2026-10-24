@@ -35,8 +35,8 @@ export const Process = () => {
         {/* 4-Step Process Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1.75rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+          gap: 'clamp(1rem, 2.5vw, 1.75rem)',
           position: 'relative'
         }}>
           {workProcess.map((item, idx) => (
@@ -45,7 +45,7 @@ export const Process = () => {
               className="glass-panel"
               style={{
                 borderRadius: 'var(--radius-xl)',
-                padding: '2.25rem 1.75rem',
+                padding: 'clamp(1.5rem, 3vw, 2.25rem) clamp(1.2rem, 3vw, 1.75rem)',
                 position: 'relative',
                 background: '#FFFFFF',
                 border: '1px solid var(--pink-border)',

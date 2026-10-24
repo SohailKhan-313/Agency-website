@@ -1,10 +1,10 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { X, ExternalLink, MessageCircle, CheckCircle, Sparkles } from 'lucide-react';
+import { X, ExternalLink, CheckCircle, Sparkles } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 
 export const ProjectModal = () => {
-  const { selectedProject, setSelectedProject, openWhatsApp, openContactModal } = useApp();
+  const { selectedProject, setSelectedProject, openContactModal } = useApp();
 
   if (!selectedProject) return null;
 
@@ -270,33 +270,14 @@ export const ProjectModal = () => {
           >
             <button
               onClick={() => {
+                const projectTitle = selectedProject.title;
                 setSelectedProject(null);
-                openWhatsApp(`Hi Doorstep Solutions! I was looking at your project "${selectedProject.title}" and want to discuss building something similar.`);
-              }}
-              className="btn-whatsapp"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.8rem 1.35rem',
-                borderRadius: 'var(--radius-full)',
-                fontWeight: 600,
-                fontSize: '0.92rem'
-              }}
-            >
-              <MessageCircle size={17} />
-              <span>Discuss on WhatsApp</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setSelectedProject(null);
-                openContactModal(`Similar to: ${selectedProject.title}`);
+                openContactModal(`Similar to: ${projectTitle}`);
               }}
               className="btn-primary"
-              style={{ padding: '0.8rem 1.35rem', fontSize: '0.92rem' }}
+              style={{ padding: '0.85rem 1.6rem', fontSize: '0.94rem' }}
             >
-              <span>Request Custom Proposal</span>
+              <span>Request Custom Proposal for this Project</span>
             </button>
           </div>
 

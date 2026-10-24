@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { useApp } from '../context/AppContext';
-import confetti from 'canvas-confetti';
-import { Calculator, Check, MessageCircle, Sparkles, Send, CheckCircle2 } from 'lucide-react';
+import { Calculator, Check, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const QuoteCalculator = () => {
-  const { openWhatsApp, showToast } = useApp();
 
   const [serviceType, setServiceType] = useState('web');
   const [timeline, setTimeline] = useState('standard');
@@ -13,8 +10,8 @@ export const QuoteCalculator = () => {
   const servicesOptions = [
     { id: 'web', name: 'Web Development', lead: 'Sohail Khan', baseDays: '10 - 20 Days' },
     { id: 'app', name: 'App Development', lead: 'Waqas Khan', baseDays: '15 - 30 Days' },
-    { id: 'social', name: 'Social Media Growth', lead: 'Hassan Munir', baseDays: 'Monthly Campaign' },
-    { id: 'bundle', name: 'Full Digital Bundle (All 3)', lead: 'Sohail, Waqas & Hassan', baseDays: 'Custom Phased Delivery' },
+    { id: 'social', name: 'Social Media Growth', lead: 'Hassan Munir (CEO)', baseDays: 'Monthly Campaign' },
+    { id: 'bundle', name: 'Full Digital Bundle (All 3)', lead: 'Hassan, Sohail & Waqas', baseDays: 'Custom Phased Delivery' },
   ];
 
   const featureOptionsByService = {
@@ -72,25 +69,6 @@ export const QuoteCalculator = () => {
     return 'Standard Milestone (2 - 4 Weeks)';
   };
 
-  const handleSendQuoteWhatsApp = () => {
-    confetti({
-      particleCount: 80,
-      spread: 60,
-      origin: { y: 0.7 }
-    });
-
-    const msg = `*Project Scope Inquiry - Doorstep Solutions*
-• Service: ${currentService.name} (Lead: ${currentService.lead})
-• Scope Tier: ${getScopeTier()}
-• Preferred Velocity: ${getTimelineText()}
-• Selected Deliverables: ${selectedFeatures.length > 0 ? selectedFeatures.join(', ') : 'Standard Core Features'}
-
-Hi Doorstep Solutions team, I configured this custom project scope on your website and would like to discuss the tailored quote and milestone plan!`;
-
-    openWhatsApp(msg);
-    showToast('Launching WhatsApp to send your project scope!');
-  };
-
   return (
     <section id="calculator" className="section" style={{ position: 'relative' }}>
       <div className="container">
@@ -117,7 +95,7 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
             maxWidth: '1000px',
             margin: '0 auto',
             borderRadius: 'var(--radius-xl)',
-            padding: '2.5rem',
+            padding: 'clamp(1.15rem, 3.5vw, 2.5rem)',
             background: '#FFFFFF',
             border: '2px solid var(--pink-border)',
             boxShadow: 'var(--shadow-lg)'
@@ -126,7 +104,7 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1fr',
-            gap: '2.5rem'
+            gap: 'clamp(1.5rem, 3vw, 2.5rem)'
           }} className="calc-grid">
             
             {/* Step 1: Choose Service */}
@@ -135,7 +113,7 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
                 1. Choose Required Service:
               </label>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.75rem', marginBottom: '2rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '0.75rem', marginBottom: '2rem' }}>
                 {servicesOptions.map(option => {
                   const isSelected = serviceType === option.id;
                   return (
@@ -205,7 +183,7 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
                 3. Preferred Delivery Velocity:
               </label>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.65rem' }}>
+              <div className="calc-timeline-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.65rem' }}>
                 {[
                   { id: 'rush', label: 'Fast-Track', detail: 'Rapid Sprint' },
                   { id: 'standard', label: 'Standard Pace', detail: 'Balanced Milestones' },
@@ -244,7 +222,7 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
                 borderRadius: 'var(--radius-xl)',
                 background: 'linear-gradient(145deg, #FFF0F5 0%, #FCE7F3 100%)',
                 border: '1px solid var(--pink-300)',
-                padding: '2rem',
+                padding: 'clamp(1.2rem, 3vw, 2rem)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -274,7 +252,7 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
 
                 <div style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '2.1rem',
+                  fontSize: 'clamp(1.7rem, 3.5vw, 2.1rem)',
                   fontWeight: 900,
                   color: 'var(--slate-900)',
                   lineHeight: 1.2,
@@ -323,10 +301,9 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
 
               {/* Action buttons (NO phone digits) */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <button
-                  type="button"
-                  onClick={handleSendQuoteWhatsApp}
-                  className="btn-whatsapp"
+                <a
+                  href="#contact"
+                  className="btn-primary"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -335,12 +312,13 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
                     padding: '0.9rem',
                     borderRadius: 'var(--radius-md)',
                     fontWeight: 700,
-                    fontSize: '0.95rem'
+                    fontSize: '0.95rem',
+                    textDecoration: 'none'
                   }}
                 >
-                  <MessageCircle size={19} />
-                  <span>Send Project Brief to WhatsApp</span>
-                </button>
+                  <span>Request Proposal for this Scope</span>
+                  <ArrowRight size={17} />
+                </a>
 
                 <div style={{ textAlign: 'center', fontSize: '0.75rem', color: 'var(--slate-500)' }}>
                   ⚡ Free initial consultation & milestone breakdown within 15 minutes.
@@ -358,6 +336,11 @@ Hi Doorstep Solutions team, I configured this custom project scope on your websi
         @media (min-width: 860px) {
           .calc-grid {
             grid-template-columns: 1.2fr 0.8fr !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .calc-timeline-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

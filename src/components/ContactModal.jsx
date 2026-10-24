@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import confetti from 'canvas-confetti';
-import { X, MessageCircle, Mail, Send, Sparkles } from 'lucide-react';
+import { X, ArrowRight, Sparkles } from 'lucide-react';
 
 export const ContactModal = () => {
-  const { contactModalOpen, closeContactModal, modalInitialService, agencyInfo, openWhatsApp, openEmail, showToast } = useApp();
+  const { contactModalOpen, closeContactModal, modalInitialService, showToast } = useApp();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -31,16 +31,8 @@ export const ContactModal = () => {
       origin: { y: 0.6 }
     });
 
-    const msg = `*Quick Project Inquiry - Doorstep Solutions*
-• Name: ${formData.name}
-• Email: ${formData.email}
-• Client WhatsApp/Phone: ${formData.phone || 'N/A'}
-• Service Requested: ${formData.service}
-• Notes: ${formData.notes}`;
-
     closeContactModal();
-    showToast('Inquiry received! Launching WhatsApp to connect instantly.');
-    openWhatsApp(msg);
+    showToast('Consultation request received! Our team will contact you shortly.');
   };
 
   return (
@@ -65,9 +57,11 @@ export const ContactModal = () => {
         style={{
           width: '100%',
           maxWidth: '560px',
+          maxHeight: '92vh',
+          overflowY: 'auto',
           borderRadius: 'var(--radius-xl)',
           background: '#FFFFFF',
-          padding: '2.5rem',
+          padding: 'clamp(1.25rem, 4vw, 2.25rem)',
           position: 'relative',
           border: '2px solid var(--pink-border)',
           boxShadow: '0 25px 60px -15px rgba(244, 63, 94, 0.35)'
@@ -114,11 +108,11 @@ export const ContactModal = () => {
             <Sparkles size={13} />
             <span>Fast Consultation Booking</span>
           </div>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--slate-900)' }}>
+          <h3 style={{ fontSize: 'clamp(1.25rem, 3.5vw, 1.5rem)', fontWeight: 800, color: 'var(--slate-900)' }}>
             Start Your Project with Doorstep Solutions
           </h3>
           <p style={{ fontSize: '0.88rem', color: 'var(--slate-600)', marginTop: '0.35rem' }}>
-            Direct connection with Sohail Khan (Web), Waqas Khan (Apps), or Hassan Munir (Social Media).
+            Direct connection with Doorstep Solutions leadership — rapid response and tailored proposal.
           </p>
         </div>
 
@@ -147,7 +141,7 @@ export const ContactModal = () => {
             />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '0.75rem' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: 'var(--slate-700)', marginBottom: '0.3rem' }}>
                 Email *
@@ -238,45 +232,24 @@ export const ContactModal = () => {
             />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginTop: '0.5rem' }}>
+          <div style={{ marginTop: '0.5rem' }}>
             <button
               type="submit"
-              className="btn-whatsapp"
+              className="btn-primary"
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '0.5rem',
-                padding: '0.85rem',
+                padding: '0.9rem',
                 borderRadius: 'var(--radius-md)',
                 fontWeight: 700,
-                fontSize: '0.95rem'
+                fontSize: '0.95rem',
+                width: '100%'
               }}
             >
-              <MessageCircle size={18} />
-              <span>Send Inquiry to WhatsApp</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                closeContactModal();
-                openEmail('Project Inquiry: ' + formData.service, formData.notes);
-              }}
-              className="btn-secondary"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                padding: '0.75rem',
-                borderRadius: 'var(--radius-md)',
-                fontWeight: 600,
-                fontSize: '0.9rem'
-              }}
-            >
-              <Mail size={16} color="var(--pink-500)" />
-              <span>Open in Gmail Webmail</span>
+              <span>Submit Consultation Request</span>
+              <ArrowRight size={17} />
             </button>
           </div>
         </form>

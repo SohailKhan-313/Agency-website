@@ -51,11 +51,11 @@ export const services = [
     title: 'Social Media Marketing',
     subtitle: 'Data-driven campaigns, viral short-form content & high-ROI brand scaling',
     lead: 'Hassan Munir',
-    leadTitle: 'Social Media Head',
+    leadTitle: 'CEO & Growth Lead',
     iconName: 'Share2',
     accentColor: '#E11D48',
     badge: 'High ROI',
-    description: 'Stop wasting budget on vanity metrics. Hassan Munir and our growth team formulate data-backed creative campaigns that flood your pipeline with qualified leads, explosive organic reach, and die-hard brand loyalty.',
+    description: 'Stop wasting budget on vanity metrics. Hassan Munir (CEO) and our growth team formulate data-backed creative campaigns that flood your pipeline with qualified leads, explosive organic reach, and die-hard brand loyalty.',
     features: [
       'Viral short-form video scripts & editing (Reels, TikTok, Shorts)',
       'Precision Meta Ads & Google PPC ad campaigns',

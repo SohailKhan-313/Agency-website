@@ -1,11 +1,8 @@
 import React from 'react';
 import { teamMembers } from '../data/team';
-import { useApp } from '../context/AppContext';
-import { MessageCircle, Mail, Sparkles, UserCheck, Code2, Smartphone, TrendingUp } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { Sparkles, UserCheck, Code2, Smartphone, TrendingUp, ArrowRight } from 'lucide-react';
 
 export const Team = () => {
-  const { agencyInfo, openWhatsApp, openEmail } = useApp();
 
   const getDepartmentIcon = (dept) => {
     switch (dept) {
@@ -31,7 +28,7 @@ export const Team = () => {
             <span className="text-gradient-pink">Doorstep Solutions</span>
           </h2>
           <p className="section-desc">
-            Direct collaboration with domain leads. You work directly with <strong>Sohail Khan</strong> (Web), <strong>Waqas Khan</strong> (Apps), and <strong>Hassan Munir</strong> (Social Media) from day one.
+            Direct collaboration with domain leads. You work directly with <strong>Hassan Munir</strong> (CEO), <strong>Sohail Khan</strong> (Web Lead), and <strong>Waqas Khan</strong> (App Lead) from day one.
           </p>
         </div>
 
@@ -112,88 +109,6 @@ export const Team = () => {
                 }}>
                   {getDepartmentIcon(member.department)}
                   <span>{member.tag}</span>
-                </div>
-
-                {/* Direct Contact Icons Overlay top right */}
-                <div style={{
-                  position: 'absolute',
-                  top: '1rem',
-                  right: '1rem',
-                  display: 'flex',
-                  gap: '0.4rem'
-                }}>
-                  {/* WhatsApp Icon */}
-                  <a
-                    href={`https://wa.me/923470232059?text=${encodeURIComponent(member.whatsappCustomMsg)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '50%',
-                      background: '#25D366',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#fff',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
-                      transition: 'transform var(--transition-fast)'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.15)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    title="Chat on WhatsApp"
-                  >
-                    <MessageCircle size={18} />
-                  </a>
-
-                  {/* Email Icon */}
-                  <button
-                    onClick={() => openEmail(`Inquiry for ${member.name} (${member.department})`)}
-                    style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '50%',
-                      background: 'var(--grad-pink-primary)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#fff',
-                      boxShadow: '0 4px 12px rgba(244, 63, 94, 0.35)',
-                      transition: 'transform var(--transition-fast)',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.15)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    title={`Email ${member.name}`}
-                  >
-                    <Mail size={17} />
-                  </button>
-
-                  {/* Optional GitHub Profile */}
-                  {member.github && (
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '50%',
-                        background: 'rgba(255, 255, 255, 0.95)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'var(--slate-800)',
-                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                        transition: 'transform var(--transition-fast)'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.15)'}
-                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                      title="GitHub Profile"
-                    >
-                      <GithubIcon size={16} />
-                    </a>
-                  )}
                 </div>
 
                 {/* Name & Role overlay bottom of photo */}
@@ -293,32 +208,58 @@ export const Team = () => {
                   </div>
                 </div>
 
-                {/* Direct Action WhatsApp button */}
-                <a
-                  href={`https://wa.me/923470232059?text=${encodeURIComponent(member.whatsappCustomMsg)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    padding: '0.75rem',
-                    borderRadius: 'var(--radius-md)',
-                    fontWeight: 600,
-                    fontSize: '0.88rem',
-                    textDecoration: 'none',
-                    width: '100%'
-                  }}
-                >
-                  <MessageCircle size={17} />
-                  <span>Chat with {member.name.split(' ')[0]} on WhatsApp</span>
-                </a>
-
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Agency Leadership Consultation Banner */}
+        <div
+          className="glass-panel"
+          style={{
+            marginTop: '3rem',
+            borderRadius: 'var(--radius-xl)',
+            padding: 'clamp(1.5rem, 4vw, 2.25rem)',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 245, 0.9) 100%)',
+            border: '1px solid var(--pink-border)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '1.5rem'
+          }}
+        >
+          <div style={{ maxWidth: '640px' }}>
+            <div style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--pink-600)', letterSpacing: '0.04em', marginBottom: '0.35rem' }}>
+              Direct Agency Channel
+            </div>
+            <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.45rem)', fontWeight: 800, color: 'var(--slate-900)', marginBottom: '0.35rem' }}>
+              Ready to Build Your Next Product with Our Specialists?
+            </h3>
+            <p style={{ color: 'var(--slate-600)', fontSize: '0.92rem', lineHeight: 1.5 }}>
+              Connect directly with Doorstep Solutions for end-to-end web architectures, high-performance mobile apps, and viral social campaigns.
+            </p>
+          </div>
+
+          <div>
+            <a
+              href="#contact"
+              className="btn-primary"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.85rem 1.6rem',
+                borderRadius: 'var(--radius-md)',
+                fontWeight: 700,
+                fontSize: '0.92rem',
+                textDecoration: 'none'
+              }}
+            >
+              <span>Connect with Our Team</span>
+              <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
 
       </div>

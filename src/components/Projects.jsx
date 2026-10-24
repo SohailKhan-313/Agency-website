@@ -1,11 +1,11 @@
 import React from 'react';
 import { projects } from '../data/projects';
 import { useApp } from '../context/AppContext';
-import { Sparkles, ExternalLink, ArrowRight, Layers, MessageCircle } from 'lucide-react';
+import { Sparkles, ExternalLink, ArrowRight, Layers } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 
 export const Projects = () => {
-  const { activeFilter, setActiveFilter, setSelectedProject, openWhatsApp } = useApp();
+  const { activeFilter, setActiveFilter, setSelectedProject } = useApp();
 
   const filterTabs = [
     { id: 'all', label: 'All Projects', count: projects.length },
@@ -319,30 +319,6 @@ export const Projects = () => {
                       <GithubIcon size={15} />
                     </a>
                   )}
-
-                  {/* WhatsApp Quick Discuss Button */}
-                  <button
-                    onClick={() => openWhatsApp(`Hi Doorstep Solutions! I am interested in building a solution like ${project.title}.`)}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '50%',
-                      background: '#25D366',
-                      color: '#fff',
-                      boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
-                      transition: 'transform var(--transition-fast)',
-                      cursor: 'pointer',
-                      flexShrink: 0
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    title="Discuss on WhatsApp"
-                  >
-                    <MessageCircle size={16} />
-                  </button>
                 </div>
 
               </div>

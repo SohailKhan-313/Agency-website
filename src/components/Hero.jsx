@@ -1,9 +1,9 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Sparkles, MessageCircle, Mail, ArrowRight, Code2, Smartphone, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { Sparkles, ArrowRight, Code2, Smartphone, TrendingUp, CheckCircle2 } from 'lucide-react';
 
 export const Hero = () => {
-  const { openContactModal, openWhatsApp, openEmail } = useApp();
+  const { openContactModal } = useApp();
 
   return (
     <section style={{
@@ -89,7 +89,7 @@ export const Hero = () => {
               lineHeight: 1.65,
               marginBottom: '1.75rem'
             }}>
-              At <strong>Doorstep Solutions</strong>, we engineer market-ready digital products and growth campaigns. Led by <strong>Sohail Khan</strong> (Web), <strong>Waqas Khan</strong> (Apps), and <strong>Hassan Munir</strong> (Social Media Marketing).
+              At <strong>Doorstep Solutions</strong>, we engineer market-ready digital products and growth campaigns. Led by <strong>Hassan Munir</strong> (CEO), <strong>Sohail Khan</strong> (Web), and <strong>Waqas Khan</strong> (Apps).
             </p>
 
             {/* Service Pillars */}
@@ -107,7 +107,7 @@ export const Hero = () => {
                 color: 'var(--slate-700)'
               }}>
                 <Code2 size={15} color="var(--pink-500)" />
-                <span>Web Dev • Sohail</span>
+                <span>Web Development</span>
               </div>
 
               <div style={{
@@ -123,7 +123,7 @@ export const Hero = () => {
                 color: 'var(--slate-700)'
               }}>
                 <Smartphone size={15} color="var(--pink-500)" />
-                <span>App Dev • Waqas</span>
+                <span>App Development</span>
               </div>
 
               <div style={{
@@ -139,7 +139,7 @@ export const Hero = () => {
                 color: 'var(--slate-700)'
               }}>
                 <TrendingUp size={15} color="var(--pink-500)" />
-                <span>Social • Hassan</span>
+                <span>Social Media Marketing</span>
               </div>
             </div>
 
@@ -148,32 +148,14 @@ export const Hero = () => {
               <button
                 onClick={() => openContactModal('General Inquiry')}
                 className="btn-primary"
-                style={{ fontSize: '0.94rem', padding: '0.85rem 1.65rem' }}
+                style={{ fontSize: '0.94rem', padding: '0.85rem 1.65rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
               >
                 <span>Book Free Consultation</span>
                 <ArrowRight size={17} />
               </button>
 
-              <button
-                onClick={() => openWhatsApp('Hi Doorstep Solutions! I would like to discuss a project.')}
-                className="btn-whatsapp"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.85rem 1.5rem',
-                  borderRadius: 'var(--radius-full)',
-                  fontWeight: 600,
-                  fontSize: '0.94rem'
-                }}
-                title="Chat on WhatsApp"
-              >
-                <MessageCircle size={18} />
-                <span>Chat on WhatsApp</span>
-              </button>
-
-              <button
-                onClick={() => openEmail()}
+              <a
+                href="#projects"
                 className="btn-secondary"
                 style={{
                   display: 'inline-flex',
@@ -182,13 +164,12 @@ export const Hero = () => {
                   padding: '0.85rem 1.4rem',
                   borderRadius: 'var(--radius-full)',
                   fontWeight: 600,
-                  fontSize: '0.92rem'
+                  fontSize: '0.92rem',
+                  textDecoration: 'none'
                 }}
-                title="Send Email"
               >
-                <Mail size={17} color="var(--pink-500)" />
-                <span>Email Us</span>
-              </button>
+                <span>Explore Projects</span>
+              </a>
             </div>
 
             {/* Quick Guarantees */}
@@ -277,7 +258,7 @@ export const Hero = () => {
               </div>
             </div>
 
-            {/* Floating Badge 2: WhatsApp Chat */}
+            {/* Floating Badge 2: Quality & Milestone Guarantee */}
             <div
               className="animate-float-reverse glass-panel hero-floating-badge-2"
               style={{
@@ -290,27 +271,25 @@ export const Hero = () => {
                 alignItems: 'center',
                 gap: '0.65rem',
                 zIndex: 2,
-                boxShadow: 'var(--shadow-md)',
-                cursor: 'pointer'
+                boxShadow: 'var(--shadow-md)'
               }}
-              onClick={() => openWhatsApp()}
             >
               <div style={{
                 width: '32px',
                 height: '32px',
                 borderRadius: '8px',
-                background: '#25D366',
+                background: 'var(--grad-pink-primary)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#fff',
                 flexShrink: 0
               }}>
-                <MessageCircle size={18} />
+                <CheckCircle2 size={18} />
               </div>
               <div>
-                <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--slate-900)' }}>WhatsApp Consultation</div>
-                <div style={{ fontSize: '0.72rem', color: 'var(--slate-500)', fontWeight: 600 }}>Click to Chat Instantly</div>
+                <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--slate-900)' }}>100% Milestone Delivery</div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--slate-500)', fontWeight: 600 }}>Zero Risk Guarantee</div>
               </div>
             </div>
 

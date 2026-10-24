@@ -13,19 +13,19 @@ export const Stats = () => {
   };
 
   return (
-    <section style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem) 0', position: 'relative', zIndex: 2 }}>
+    <section style={{ padding: 'clamp(1.25rem, 3.5vw, 2.5rem) 0', position: 'relative', zIndex: 2 }}>
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '1rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+          gap: 'clamp(0.65rem, 2vw, 1rem)'
         }} className="stats-grid">
           {agencyStats.map((stat, idx) => (
             <div
               key={idx}
               className="glass-panel"
               style={{
-                padding: 'clamp(1.25rem, 3vw, 1.75rem)',
+                padding: 'clamp(1rem, 2.5vw, 1.75rem)',
                 borderRadius: 'var(--radius-lg)',
                 borderBottom: '3px solid var(--pink-400)',
                 transition: 'transform var(--transition-fast), box-shadow var(--transition-fast)'
@@ -43,28 +43,28 @@ export const Stats = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '42px',
-                height: '42px',
-                borderRadius: '12px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '10px',
                 background: 'var(--pink-100)',
-                marginBottom: '1rem'
+                marginBottom: '0.85rem'
               }}>
                 {getIcon(idx)}
               </div>
 
               <div style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(1.8rem, 4vw, 2.4rem)',
+                fontSize: 'clamp(1.6rem, 3.8vw, 2.4rem)',
                 fontWeight: 900,
                 color: 'var(--slate-900)',
                 lineHeight: 1,
-                marginBottom: '0.4rem'
+                marginBottom: '0.35rem'
               }}>
                 {stat.value}
               </div>
 
               <div style={{
-                fontSize: '0.95rem',
+                fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
                 fontWeight: 700,
                 color: 'var(--slate-800)',
                 marginBottom: '0.2rem'
@@ -73,7 +73,7 @@ export const Stats = () => {
               </div>
 
               <div style={{
-                fontSize: '0.8rem',
+                fontSize: '0.78rem',
                 color: 'var(--slate-500)',
                 fontWeight: 500
               }}>
@@ -88,7 +88,12 @@ export const Stats = () => {
         @media (max-width: 480px) {
           .stats-grid {
             grid-template-columns: 1fr 1fr !important;
-            gap: 0.75rem !important;
+            gap: 0.65rem !important;
+          }
+        }
+        @media (max-width: 320px) {
+          .stats-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import { Mail, Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { Menu, X, ArrowUpRight, MessageCircle, Send } from 'lucide-react';
 
 export const Navbar = () => {
-  const { agencyInfo, openContactModal, openWhatsApp, openEmail } = useApp();
+  const { agencyInfo, openContactModal, openWhatsApp } = useApp();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -26,7 +26,7 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Top micro-bar for quick contact icons (Email address hidden, showing 'Email Us') */}
+      {/* Top micro-bar: Email address is hidden from navbar; shows live availability & WhatsApp */}
       <div style={{
         background: 'linear-gradient(90deg, #FFF0F5 0%, #FCE7F3 50%, #FFF5F7 100%)',
         borderBottom: '1px solid rgba(244, 114, 182, 0.2)',
@@ -50,11 +50,11 @@ export const Navbar = () => {
               backgroundColor: '#10B981',
               boxShadow: '0 0 0 2px rgba(16, 185, 129, 0.25)'
             }} />
-            <span>Available for new projects</span>
+            <span style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.82rem)' }}>Available for new projects</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            {/* WhatsApp Link */}
+            {/* WhatsApp Quick Link */}
             <a
               href={agencyInfo.whatsappLink}
               target="_blank"
@@ -65,6 +65,7 @@ export const Navbar = () => {
                 gap: '0.35rem',
                 color: 'var(--slate-800)',
                 fontWeight: 600,
+                fontSize: 'clamp(0.75rem, 2.5vw, 0.82rem)',
                 transition: 'color var(--transition-fast)'
               }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#25D366'}
@@ -75,26 +76,25 @@ export const Navbar = () => {
               <span>WhatsApp</span>
             </a>
 
-            {/* Email Link: Email address hidden, clean 'Email Us' label */}
-            <button
-              onClick={() => openEmail()}
+            {/* Quick Contact Link (Email address hidden from navbar) */}
+            <a
+              href="#contact"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.35rem',
                 color: 'var(--slate-800)',
                 fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'color var(--transition-fast)',
-                fontSize: 'inherit'
+                fontSize: 'clamp(0.75rem, 2.5vw, 0.82rem)',
+                transition: 'color var(--transition-fast)'
               }}
               onMouseEnter={(e) => e.currentTarget.style.color = 'var(--pink-600)'}
               onMouseLeave={(e) => e.currentTarget.style.color = 'var(--slate-800)'}
-              title="Send Us an Email"
+              title="Contact Doorstep Solutions"
             >
-              <Mail size={15} color="var(--pink-500)" />
-              <span>Email Us</span>
-            </button>
+              <Send size={13} color="var(--pink-500)" />
+              <span>Contact Us</span>
+            </a>
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ export const Navbar = () => {
           padding: isScrolled ? '0.65rem 0' : '0.9rem 0',
         }}
       >
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
           {/* Brand Logo */}
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexShrink: 0 }}>
             <div
@@ -129,7 +129,8 @@ export const Navbar = () => {
                 color: '#fff',
                 fontWeight: 800,
                 fontSize: '1.15rem',
-                boxShadow: 'var(--shadow-pink-glow)'
+                boxShadow: 'var(--shadow-pink-glow)',
+                flexShrink: 0
               }}
             >
               DS
@@ -137,7 +138,7 @@ export const Navbar = () => {
             <div>
               <div style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(1.15rem, 4vw, 1.35rem)',
+                fontSize: 'clamp(1.05rem, 3.8vw, 1.35rem)',
                 fontWeight: 800,
                 letterSpacing: '-0.02em',
                 color: 'var(--slate-900)',
@@ -148,7 +149,7 @@ export const Navbar = () => {
               }}>
                 Doorstep<span className="text-gradient-pink">Solutions</span>
               </div>
-              <div style={{ fontSize: '0.68rem', color: 'var(--slate-500)', fontWeight: 600, letterSpacing: '0.04em' }}>
+              <div className="nav-subtitle" style={{ fontSize: '0.68rem', color: 'var(--slate-500)', fontWeight: 600, letterSpacing: '0.04em' }}>
                 WEB • APP • SOCIAL
               </div>
             </div>
@@ -176,7 +177,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             {/* Desktop WhatsApp Nav Button */}
             <button
               onClick={() => openWhatsApp()}
@@ -201,13 +202,13 @@ export const Navbar = () => {
               onClick={() => openContactModal('General Inquiry')}
               className="btn-primary"
               style={{
-                padding: '0.6rem 1.15rem',
-                fontSize: '0.84rem',
+                padding: '0.55rem 1rem',
+                fontSize: '0.82rem',
                 whiteSpace: 'nowrap'
               }}
             >
               <span>Get Quote</span>
-              <ArrowUpRight size={15} />
+              <ArrowUpRight size={14} />
             </button>
 
             {/* Mobile Hamburger Button */}
@@ -232,18 +233,18 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu (Email hidden, shows 'Email Us') */}
+        {/* Mobile Dropdown Menu (Email address is hidden from navbar) */}
         {mobileMenuOpen && (
           <div
             style={{
-              padding: '1.25rem 1.5rem 2rem 1.5rem',
+              padding: '1.25rem 1.25rem 1.75rem 1.25rem',
               backgroundColor: 'rgba(255, 255, 255, 0.98)',
               borderBottom: '1px solid var(--pink-border)',
               boxShadow: 'var(--shadow-lg)',
               animation: 'slideDownFade 0.25s ease-out'
             }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.25rem' }}>
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -253,7 +254,7 @@ export const Navbar = () => {
                     fontSize: '1rem',
                     fontWeight: 600,
                     color: 'var(--slate-800)',
-                    padding: '0.45rem 0',
+                    padding: '0.5rem 0',
                     borderBottom: '1px solid var(--hashwhite-subtle)'
                   }}
                 >
@@ -267,6 +268,7 @@ export const Navbar = () => {
                 href={agencyInfo.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="btn-whatsapp"
                 style={{
                   display: 'flex',
@@ -276,20 +278,20 @@ export const Navbar = () => {
                   padding: '0.75rem',
                   borderRadius: 'var(--radius-md)',
                   fontWeight: 600,
-                  fontSize: '0.92rem'
+                  fontSize: '0.92rem',
+                  textDecoration: 'none'
                 }}
               >
                 <MessageCircle size={18} />
                 <span>Chat on WhatsApp</span>
               </a>
 
-              {/* Email Button (Email address hidden from text) */}
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  openEmail();
+                  openContactModal('Mobile Menu Inquiry');
                 }}
-                className="btn-secondary"
+                className="btn-primary"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -301,8 +303,8 @@ export const Navbar = () => {
                   fontSize: '0.92rem'
                 }}
               >
-                <Mail size={17} color="var(--pink-500)" />
-                <span>Email Us</span>
+                <span>Book Free Consultation</span>
+                <ArrowUpRight size={16} />
               </button>
             </div>
           </div>
@@ -319,6 +321,11 @@ export const Navbar = () => {
           }
           .whatsapp-nav-btn {
             display: inline-flex !important;
+          }
+        }
+        @media (max-width: 360px) {
+          .nav-subtitle {
+            display: none !important;
           }
         }
       `}</style>

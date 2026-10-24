@@ -25,8 +25,8 @@ export const Testimonials = () => {
         {/* Testimonials Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '2rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(1.25rem, 3vw, 2rem)'
         }}>
           {testimonials.map((t) => (
             <div
@@ -34,7 +34,7 @@ export const Testimonials = () => {
               className="glass-panel"
               style={{
                 borderRadius: 'var(--radius-xl)',
-                padding: '2.5rem 2rem',
+                padding: 'clamp(1.5rem, 3vw, 2.5rem) clamp(1.2rem, 3vw, 2rem)',
                 background: '#FFFFFF',
                 border: '1px solid var(--pink-border)',
                 display: 'flex',

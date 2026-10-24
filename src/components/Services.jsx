@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { services } from '../data/services';
 import { useApp } from '../context/AppContext';
-import { Code2, Smartphone, Share2, Check, ArrowRight, Sparkles, MessageCircle } from 'lucide-react';
+import { Code2, Smartphone, Share2, Check, ArrowRight, Sparkles } from 'lucide-react';
 
 export const Services = () => {
-  const { openContactModal, openWhatsApp } = useApp();
+  const { openContactModal } = useApp();
 
   const getServiceIcon = (iconName) => {
     switch (iconName) {
@@ -30,7 +30,7 @@ export const Services = () => {
             <span className="text-gradient-pink">Engineered for Exponential Results</span>
           </h2>
           <p className="section-desc">
-            Directly spearheaded by our domain leads — <strong>Sohail Khan</strong> (Web), <strong>Waqas Khan</strong> (Apps), and <strong>Hassan Munir</strong> (Social Media Marketing).
+            Directly spearheaded by our domain leads — <strong>Hassan Munir</strong> (CEO), <strong>Sohail Khan</strong> (Web), and <strong>Waqas Khan</strong> (Apps).
           </p>
         </div>
 
@@ -188,38 +188,20 @@ export const Services = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginTop: 'auto' }}>
-                <button
-                  onClick={() => openWhatsApp(`Hi ${service.lead}! I would like to discuss ${service.title} with Doorstep Solutions.`)}
-                  className="btn-whatsapp"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    padding: '0.75rem',
-                    borderRadius: 'var(--radius-md)',
-                    fontSize: '0.9rem',
-                    fontWeight: 600,
-                    width: '100%'
-                  }}
-                >
-                  <MessageCircle size={17} />
-                  <span>Chat with {service.lead.split(' ')[0]} on WhatsApp</span>
-                </button>
-
+              {/* Action Button */}
+              <div style={{ marginTop: 'auto' }}>
                 <button
                   onClick={() => openContactModal(service.title)}
-                  className="btn-secondary"
+                  className="btn-primary"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '0.5rem',
-                    padding: '0.75rem',
+                    padding: '0.85rem',
                     borderRadius: 'var(--radius-md)',
-                    fontSize: '0.9rem',
+                    fontSize: '0.92rem',
+                    fontWeight: 700,
                     width: '100%'
                   }}
                 >
@@ -234,7 +216,7 @@ export const Services = () => {
 
         {/* Bottom Banner callout (Responsive) */}
         <div
-          className="glass-panel"
+          className="glass-panel services-bundle-banner"
           style={{
             borderRadius: 'var(--radius-xl)',
             padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 4vw, 2.5rem)',
@@ -258,7 +240,7 @@ export const Services = () => {
 
           <button
             onClick={() => openContactModal('Full Agency Bundle (Web + App + Social)')}
-            className="btn-primary"
+            className="btn-primary services-bundle-btn"
             style={{ padding: '0.8rem 1.65rem', whiteSpace: 'nowrap' }}
           >
             <span>Get Bundle Quote</span>
@@ -267,6 +249,19 @@ export const Services = () => {
         </div>
 
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .services-bundle-banner {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            text-align: center !important;
+          }
+          .services-bundle-btn {
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

@@ -32,9 +32,9 @@ export const Footer = () => {
         {/* Main Footer Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '3rem',
-          marginBottom: '4rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+          gap: 'clamp(2rem, 4vw, 3rem)',
+          marginBottom: 'clamp(2.5rem, 5vw, 4rem)'
         }}>
           
           {/* Column 1: Brand Info */}
@@ -212,6 +212,16 @@ export const Footer = () => {
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--pink-600)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--slate-600)'}
                 >
+                  <strong>Hassan Munir</strong> — CEO
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#team"
+                  style={{ fontSize: '0.92rem', color: 'var(--slate-600)', transition: 'color var(--transition-fast)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--pink-600)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--slate-600)'}
+                >
                   <strong>Sohail Khan</strong> — Web Lead
                 </a>
               </li>
@@ -223,16 +233,6 @@ export const Footer = () => {
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--slate-600)'}
                 >
                   <strong>Waqas Khan</strong> — App Lead
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#team"
-                  style={{ fontSize: '0.92rem', color: 'var(--slate-600)', transition: 'color var(--transition-fast)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--pink-600)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--slate-600)'}
-                >
-                  <strong>Hassan Munir</strong> — Social Media Head
                 </a>
               </li>
             </ul>
@@ -306,7 +306,7 @@ export const Footer = () => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             <span>Crafted with</span>
             <Heart size={14} color="var(--pink-500)" fill="var(--pink-500)" />
-            <span>by Sohail, Waqas & Hassan</span>
+            <span>by Doorstep Solutions</span>
           </div>
         </div>
 

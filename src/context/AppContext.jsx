@@ -15,9 +15,9 @@ export const AppProvider = ({ children }) => {
     tagline: "Delivering Digital Excellence Right to Your Doorstep",
     whatsappRawNumber: "03470232059",
     whatsappLink: "https://wa.me/923470232059",
-    email: "Skpattan850911@gmail.com",
-    emailLink: "mailto:Skpattan850911@gmail.com",
-    gmailWebLink: "https://mail.google.com/mail/?view=cm&fs=1&to=Skpattan850911@gmail.com",
+    email: "doorstepsolutions59@gmail.com",
+    emailLink: "mailto:doorstepsolutions59@gmail.com",
+    gmailWebLink: "https://mail.google.com/mail/?view=cm&fs=1&to=doorstepsolutions59@gmail.com",
     officeHours: "24/7 Response & Rapid Delivery"
   };
 
@@ -49,7 +49,7 @@ export const AppProvider = ({ children }) => {
     const encBody = encodeURIComponent(body || 'Hi Doorstep Solutions Team,\n\nI would like to discuss a project.\n\nBest regards,');
     
     // Direct Gmail webmail compose link (reliable across all browsers without requiring local Outlook/desktop mail app)
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Skpattan850911@gmail.com&su=${encSubject}&body=${encBody}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=doorstepsolutions59@gmail.com&su=${encSubject}&body=${encBody}`;
     window.open(gmailUrl, '_blank', 'noopener,noreferrer');
   }, []);
 

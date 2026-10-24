@@ -149,7 +149,7 @@ export const projects = [
       'Offline-first transaction queuing'
     ],
     techStack: ['Flutter', 'Dart', 'Firebase', 'Swift', 'Kotlin'],
-    liveUrl: 'https://wa.me/923470232059?text=Hi%20Waqas!%20I%20want%20to%20discuss%20a%20mobile%20app%20project.',
+    liveUrl: 'https://wa.me/923470232059?text=Hi%20Doorstep%20Solutions!%20I%20want%20to%20discuss%20a%20mobile%20app%20project.',
     githubUrl: 'https://github.com',
     demoType: 'Mobile App Demo'
   },
@@ -158,20 +158,20 @@ export const projects = [
     title: 'Aura Beauty - Viral Social Growth',
     category: 'social',
     categoryLabel: 'Social Media Marketing',
-    lead: 'Hassan Munir',
+    lead: 'Hassan Munir (CEO)',
     client: 'Aura Luxury Skincare',
     image: '/project_social.jpg',
     metric: '2.4M+ Viral Reel Views',
     summary: 'Brand identity revamp and viral short-form video campaign driving 410% growth in direct customer orders.',
-    description: 'Directed by Hassan Munir. Developed aesthetic content calendars, viral TikTok and Instagram Reel hooks, and high-converting Meta ad campaigns.',
+    description: 'Directed by Hassan Munir (CEO). Developed aesthetic content calendars, viral TikTok and Instagram Reel hooks, and high-converting Meta ad campaigns.',
     highlights: [
-      '30+ bespoke lifestyle posts and high-converting viral reels',
+      '30+ lifestyle posts and high-converting viral reels',
       '8.4% average engagement rate across TikTok & Instagram',
       'Targeted ad funnels delivering 4.8x average ROAS',
       'Influencer partnership coordination'
     ],
     techStack: ['Meta Ads Manager', 'TikTok Creative Center', 'Canva Pro', 'CapCut Studio'],
-    liveUrl: 'https://wa.me/923470232059?text=Hi%20Hassan!%20I%20want%20to%20scale%20my%20social%20media%20marketing.',
+    liveUrl: 'https://wa.me/923470232059?text=Hi%20Doorstep%20Solutions!%20I%20want%20to%20discuss%20social%20media%20marketing.',
     githubUrl: 'https://instagram.com',
     demoType: 'Social Media Campaign'
   }

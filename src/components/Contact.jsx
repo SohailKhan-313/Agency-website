@@ -10,7 +10,7 @@ export const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    service: 'Web Development (Sohail Khan)',
+    service: 'Web Development',
     budget: 'Flexible Scope',
     message: ''
   });
@@ -51,7 +51,7 @@ export const Contact = () => {
         name: '',
         email: '',
         phone: '',
-        service: 'Web Development (Sohail Khan)',
+        service: 'Web Development',
         budget: 'Flexible Scope',
         message: ''
       });
@@ -92,7 +92,7 @@ export const Contact = () => {
               className="glass-panel"
               style={{
                 borderRadius: 'var(--radius-xl)',
-                padding: '2rem',
+                padding: 'clamp(1.25rem, 3.5vw, 2rem)',
                 background: '#FFFFFF',
                 border: '1px solid rgba(37, 211, 102, 0.4)',
                 borderLeft: '6px solid #25D366',
@@ -144,7 +144,7 @@ export const Contact = () => {
               </div>
 
               <p style={{ fontSize: '0.88rem', color: 'var(--slate-600)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                Chat immediately with our founders Sohail, Waqas, or Hassan. Typical response time is under 15 minutes.
+                Chat immediately with our agency leadership team. Typical response time is under 15 minutes.
               </p>
 
               <button
@@ -168,12 +168,12 @@ export const Contact = () => {
               </button>
             </div>
 
-            {/* Email Card (Skpattan850911@gmail.com with Gmail webmail & copy) */}
+            {/* Email Card (doorstepsolutions59@gmail.com with Gmail webmail & copy) */}
             <div
               className="glass-panel"
               style={{
                 borderRadius: 'var(--radius-xl)',
-                padding: '2rem',
+                padding: 'clamp(1.25rem, 3.5vw, 2rem)',
                 background: '#FFFFFF',
                 border: '1px solid var(--pink-border)',
                 borderLeft: '6px solid var(--pink-500)',
@@ -281,8 +281,8 @@ export const Contact = () => {
             {/* Quick Guarantees */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '1rem'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
+              gap: '0.85rem'
             }}>
               <div style={{
                 padding: '1.25rem',
@@ -324,7 +324,7 @@ export const Contact = () => {
             className="glass-panel"
             style={{
               borderRadius: 'var(--radius-xl)',
-              padding: '2.5rem',
+              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
               background: '#FFFFFF',
               border: '2px solid var(--pink-border)',
               boxShadow: 'var(--shadow-lg)'
@@ -461,9 +461,9 @@ export const Contact = () => {
                       fontFamily: 'inherit'
                     }}
                   >
-                    <option value="Web Development (Sohail Khan)">Web Development (Sohail Khan)</option>
-                    <option value="App Development (Waqas Khan)">App Development (Waqas Khan)</option>
-                    <option value="Social Media Marketing (Hassan Munir)">Social Media Marketing (Hassan Munir)</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="App Development">App Development</option>
+                    <option value="Social Media Marketing">Social Media Marketing</option>
                     <option value="Full Agency Bundle (Web + App + Social)">Full Agency Bundle (All 3)</option>
                     <option value="General Consultation">General Consultation</option>
                   </select>
@@ -553,7 +553,7 @@ export const Contact = () => {
               </button>
 
               <div style={{ textAlign: 'center', fontSize: '0.78rem', color: 'var(--slate-500)' }}>
-                🔒 Direct consultation guaranteed with Sohail, Waqas, or Hassan.
+                🔒 Direct consultation guaranteed with Doorstep Solutions leadership.
               </div>
 
             </form>
